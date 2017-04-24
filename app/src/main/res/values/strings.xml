@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GitHub Reader</string>
+    <string name="user_photo">Foto do usuário</string>
+    <string name="loading">Carregando</string>
+    <string name="wait_loading">Aguarde carregando…</string>
+    <string name="generic_error">Ocorreu um erro, por favor, tente novamente mais tarde.</string>
+    <string name="empty_search">Não encontramos registros para essa busca.</string>
+</resources>

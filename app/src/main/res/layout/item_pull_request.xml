@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="pullRequest"
+            type="com.desafio.christiane.githubreader.model.PullRequest"/>
+
+        <variable
+            name="glide"
+            type="com.bumptech.glide.Glide"/>
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_pull_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@android:color/white"
+        android:clickable="true"
+        android:orientation="vertical"
+        app:cardCornerRadius="2dp"
+        app:elevation="2dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/iv_foto"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:contentDescription="@string/user_photo"
+                app:imageUrl="@{pullRequest.user.avatarUrl}"
+                tools:src="@drawable/default_photo"/>
+
+            <TextView
+                android:id="@+id/tv_nome_usuario"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_foto"
+                android:layout_marginStart="8dp"
+                android:text="@{pullRequest.user.login}"
+                android:textAlignment="center"
+                android:textSize="13sp"
+                tools:text="Nome usuário"/>
+
+            <TextView
+                android:id="@+id/tv_nome_pullrequest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/iv_foto"
+                android:paddingBottom="8dp"
+                android:textStyle="bold"
+                android:text="@{pullRequest.title}"
+                tools:text="Repositório ABC"/>
+
+            <TextView
+                android:id="@+id/tv_descricao_pullrequest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_nome_pullrequest"
+                android:layout_toEndOf="@id/iv_foto"
+                android:text="@{pullRequest.body}"
+                android:maxLines="3"
+                android:paddingBottom="8dp"
+                tools:text="descricao"/>
+
+            <TextView
+                android:id="@+id/tv_data_criacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_descricao_pullrequest"
+                android:layout_marginTop="4dp"
+                android:text="@{pullRequest.createdAt}"
+                android:layout_toEndOf="@id/iv_foto"
+                android:maxLines="3"
+                tools:text="Criado em: 16/07/2016"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_above="@+id/tv_data_criacao"
+                android:layout_toEndOf="@id/iv_foto"
+                android:background="@android:color/darker_gray"/>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</layout>

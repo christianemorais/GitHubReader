@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="repositoryItem"
+            type="com.desafio.christiane.githubreader.model.RepositoryItem"/>
+
+        <variable
+            name="glide"
+            type="com.bumptech.glide.Glide"/>
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_repository"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@android:color/white"
+        android:clickable="true"
+        android:orientation="vertical"
+        app:cardCornerRadius="2dp"
+        app:elevation="2dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/iv_foto"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@null"
+                app:imageUrl="@{repositoryItem.owner.avatarUrl}"
+                tools:src="@drawable/default_photo"/>
+
+            <TextView
+                android:id="@+id/tv_nome_usuario"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_foto"
+                android:labelFor="@id/iv_foto"
+                android:maxLines="2"
+                android:text="@{repositoryItem.owner.login}"
+                android:textAlignment="center"
+                android:textSize="13sp"
+                tools:text="Nome usuário"/>
+
+            <TextView
+                android:id="@+id/tv_nome_repositorio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/iv_foto"
+                android:maxLines="1"
+                android:paddingBottom="8dp"
+                android:text="@{repositoryItem.name}"
+                android:textStyle="bold"
+                tools:text="Repositório ABC"/>
+
+            <TextView
+                android:id="@+id/tv_descricao_repositorio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_nome_repositorio"
+                android:layout_toEndOf="@id/iv_foto"
+                android:maxLines="2"
+                android:text="@{repositoryItem.description}"
+                tools:text="descricao bgjdghkvdfhdk vdfhvkjfd vdkjvhfd vdkjfvhdfkv"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_descricao_repositorio"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/iv_foto"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_qtde_estrelas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:drawablePadding="4dp"
+                    android:drawableStart="@drawable/stars"
+                    android:text="@{String.valueOf(repositoryItem.stargazersCount)}"
+                    tools:text="456"/>
+
+                <TextView
+                    android:id="@+id/tv_qtde_forks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:drawablePadding="4dp"
+                    android:drawableStart="@drawable/fork"
+                    android:text="@{String.valueOf(repositoryItem.forksCount)}"
+                    tools:text="123"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</layout>
